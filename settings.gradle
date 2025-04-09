@@ -1,0 +1,5 @@
+rootProject.name = "demo"
+
+include 'gateway'
+include 'inventory-api'
+include 'order-api'
