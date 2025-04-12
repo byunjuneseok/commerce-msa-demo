@@ -1,5 +1,6 @@
 rootProject.name = "demo"
 
 include 'gateway'
+include 'service-registry'
 include 'inventory-api'
 include 'order-api'
