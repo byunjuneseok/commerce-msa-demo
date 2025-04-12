@@ -8,12 +8,23 @@ repositories {
     mavenCentral()
 }
 
+allprojects {
+    group = 'binaryflavor'
+    version = '0.0.1-SNAPSHOT'
+}
+
 subprojects {
     group = 'binaryflavor'
     version = '0.0.1-SNAPSHOT'
-
 
     dependencies {
     }
 }
 
+tasks.getByName("bootJar") {
+    enabled = false
+}
+
+tasks.getByName("jar") {
+    enabled = true
+}
