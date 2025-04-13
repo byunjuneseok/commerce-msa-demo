@@ -39,3 +39,7 @@ out/
 ### Local configuration file
 .env
 .envrc
+*.crt
+*.csr
+*.key
+*.srl

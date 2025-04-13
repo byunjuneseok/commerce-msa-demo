@@ -35,4 +35,4 @@ spec:
           readinessProbe:
             httpGet:
               path: /actuator/health
-              port: http 
+              port: http

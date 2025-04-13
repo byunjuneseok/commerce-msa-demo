@@ -61,3 +61,14 @@ kubectl patch svc argocd-server -n argocd --type='json' -p '[{"op": "replace", "
 ```shell
 echo "kubectl create secret docker-registry ghcr-secret --docker-server=ghcr.io --docker-username={USER-NAME} --docker-password={ghp_xxx} --docker-email={EMAIL-ADDRESS} -n default"
 ```
+
+## Configure Istio
+```shell
+openssl req -x509 -newkey rsa:4096 -keyout ca.key -out ca.crt -days 365 -nodes -subj "/CN=RootCA"
+
+openssl req -newkey rsa:4096 -keyout istio-ingressgateway.key -out istio-ingressgateway.csr -nodes -subj "/CN=istio-ingressgateway"
+openssl x509 -req -in istio-ingressgateway.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out istio-ingressgateway.crt -days 365
+
+kubectl create -n istio-system secret tls istio-ingressgateway-certs --key istio-ingressgateway.key --cert istio-ingressgateway.crt
+kubectl create -n istio-system secret generic ca-cert --from-file=ca.crt=ca.crt
+```
