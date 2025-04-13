@@ -6,9 +6,9 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/byunjuneseok/commerce-msa-demo.git
-        revision: HEAD
+        revision: develop
         files:
-          - path: "kind/apps/configs/config.json"
+          - path: "kind/apps/configs/**/config.json"
   template:
     metadata:
       name: '{{name}}'
@@ -17,11 +17,11 @@ spec:
       project: default
       source:
         repoURL: https://github.com/byunjuneseok/commerce-msa-demo.git
-        targetRevision: HEAD
+        targetRevision: develop
         path: kind/apps/charts/app
         helm:
           valueFiles:
-            - '../../values/values-{{name}}.yaml'
+            - '../../values/{{name}}/values.yaml'
       destination:
         server: https://kubernetes.default.svc
         namespace: default
