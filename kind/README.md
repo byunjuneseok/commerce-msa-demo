@@ -57,3 +57,7 @@ And Change the argocd-server service type to LoadBalancer
 ```shell
 kubectl patch svc argocd-server -n argocd --type='json' -p '[{"op": "replace", "path": "/spec/type", "value": "LoadBalancer"}]'
 ```
+
+```shell
+echo "kubectl create secret docker-registry ghcr-secret --docker-server=ghcr.io --docker-username={USER-NAME} --docker-password={ghp_xxx} --docker-email={EMAIL-ADDRESS} -n default"
+```
