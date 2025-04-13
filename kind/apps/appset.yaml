@@ -6,7 +6,7 @@ spec:
   generators:
     - git:
         repoURL: https://github.com/byunjuneseok/commerce-msa-demo.git
-        revision: develop
+        revision: HEAD
         files:
           - path: "kind/apps/configs/**/config.json"
   template:
@@ -17,7 +17,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/byunjuneseok/commerce-msa-demo.git
-        targetRevision: develop
+        targetRevision: HEAD
         path: 'kind/apps/{{helm.chart}}'
         helm:
           releaseName: '{{name}}'

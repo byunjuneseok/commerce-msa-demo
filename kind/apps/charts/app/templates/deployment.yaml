@@ -36,3 +36,8 @@ spec:
             httpGet:
               path: /actuator/health
               port: http
+          env:
+            {{- range .Values.env }}
+            - name: {{ .name }}
+              value: {{ .value | quote }}
+            {{- end }}

@@ -30,9 +30,9 @@ mysql:
   datasource:
     hikari:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://localhost:13306/order
-      username: order
-      password: order
+      jdbc-url: ${mysql_datasource_hikari_jdbc_url}
+      username: ${mysql_datasource_hikari_username}
+      password: ${mysql_datasource_hikari_password}
       minimum-idle: 50
       maximum-pool-size: 100
       connection-timeout: 1100
