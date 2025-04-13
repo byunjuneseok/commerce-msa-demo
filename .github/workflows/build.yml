@@ -5,6 +5,11 @@ on:
     branches:
       - main
       - develop
+    paths:
+      - 'gateway/**'
+      - 'inventory-api/**'
+      - 'order-api/**'
+      - 'service-registry/**'
 
 jobs:
   build:
