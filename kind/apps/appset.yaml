@@ -18,8 +18,9 @@ spec:
       source:
         repoURL: https://github.com/byunjuneseok/commerce-msa-demo.git
         targetRevision: develop
-        path: kind/apps/charts/app
+        path: 'kind/apps/{{helm.chart}}'
         helm:
+          releaseName: '{{name}}'
           valueFiles:
             - '../../values/{{name}}/values.yaml'
       destination:
