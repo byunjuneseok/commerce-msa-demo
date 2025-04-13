@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: commerce-msa
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/byunjuneseok/commerce-msa-demo.git
+        revision: HEAD
+        files:
+          - path: "kind/apps/configs/config.json"
+  template:
+    metadata:
+      name: '{{name}}'
+      namespace: argocd
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/byunjuneseok/commerce-msa-demo.git
+        targetRevision: HEAD
+        path: kind/apps/charts/order-api
+        helm:
+          valueFiles:
+            - '../../values/values-{{name}}.yaml'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: default
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
