@@ -1,0 +1,22 @@
+FROM amazoncorretto:21 AS build
+ARG APP_NAME
+
+# Install Gradle
+RUN yum update -y && yum install -y wget unzip
+RUN wget https://services.gradle.org/distributions/gradle-8.6-bin.zip
+RUN unzip gradle-8.6-bin.zip
+RUN mv gradle-8.6 /opt/gradle
+ENV PATH=$PATH:/opt/gradle/bin
+
+# Set up the build environment
+WORKDIR /app
+COPY .. .
+RUN gradle build --no-daemon :${APP_NAME}:build -x test --parallel
+
+FROM amazoncorretto:21
+ARG APP_NAME
+
+EXPOSE 8080
+COPY --from=build /app/${APP_NAME}/build/libs/*.jar /app.jar
+
+CMD ["java", "-jar", "/app.jar"]
