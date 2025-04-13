@@ -1,0 +1,6 @@
+{
+  "name": "redis",
+  "helm": {
+    "chart": "charts/redis-arm64"
+  }
+}

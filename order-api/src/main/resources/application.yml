@@ -20,9 +20,8 @@ spring:
           time_zone: UTC
   data:
     redis:
-      host: localhost
-      port: 16379
-      password: password
+      host: ${spring_data_redis_host}
+      port: ${spring_data_redis_port}
       ssl:
         enabled: false
 

@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/byunjuneseok/commerce-msa-demo-order-api
-  tag: 25.04.13-develop.2207-aef4b09
+  tag: 25.04.14-develop.0135-a24f13b
   pullPolicy: IfNotPresent
 
 env:
@@ -12,6 +12,10 @@ env:
     value: order
   - name: mysql_datasource_hikari_password
     value: password
+  - name: spring_data_redis_host
+    value: redis
+  - name: spring_data_redis_port
+    value: "6379"
 
 imagePullSecrets:
   - name: ghcr-secret
