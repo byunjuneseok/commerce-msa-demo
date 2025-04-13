@@ -1,7 +1,7 @@
 {
   "name": "order-api",
   "helm": {
-    "chart": "charts/order-api",
+    "chart": "charts/app",
     "default_value": "values-order-api.yaml"
   }
 }

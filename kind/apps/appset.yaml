@@ -18,7 +18,7 @@ spec:
       source:
         repoURL: https://github.com/byunjuneseok/commerce-msa-demo.git
         targetRevision: HEAD
-        path: kind/apps/charts/order-api
+        path: kind/apps/charts/app
         helm:
           valueFiles:
             - '../../values/values-{{name}}.yaml'
