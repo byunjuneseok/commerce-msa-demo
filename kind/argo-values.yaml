@@ -4,6 +4,8 @@ global:
 configs:
   params:
     server.insecure: true
+  cm:
+    exec.enabled: true
 
 certificate:
   enabled: false
@@ -19,3 +21,4 @@ server:
       nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
       nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
     tls: []
+
