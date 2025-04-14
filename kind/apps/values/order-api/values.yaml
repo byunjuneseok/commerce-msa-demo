@@ -47,8 +47,4 @@ ingress:
       paths:
         - path: /
           pathType: Prefix
-  tls:
-    - hosts:
-       - order-api.binaryflavor.com
-      secretName: order-api-tls
-  
+  tls: []

@@ -1,0 +1,6 @@
+{
+  "name": "service-registry",
+  "helm": {
+    "chart": "charts/app"
+  }
+}
