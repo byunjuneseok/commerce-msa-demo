@@ -1,7 +1,0 @@
-{
-  "name": "common-resource",
-  "helm": {
-    "chart": "charts/common-resource",
-    "default_value": "charts/common-resource/values.yaml"
-  }
-}

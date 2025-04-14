@@ -10,5 +10,5 @@ persistence:
   size: 1Gi
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 3306

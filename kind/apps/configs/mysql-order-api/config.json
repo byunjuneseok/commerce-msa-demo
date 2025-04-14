@@ -1,7 +1,6 @@
 {
   "name": "mysql-order-api",
   "helm": {
-    "chart": "charts/mysql-arm64",
-    "default_value": "charts/mysql-arm64/values.yaml"
+    "chart": "charts/mysql-arm64"
   }
 }

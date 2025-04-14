@@ -1,0 +1,21 @@
+global:
+  domain: argo.binaryflavor.com
+
+configs:
+  params:
+    server.insecure: true
+
+certificate:
+  enabled: false
+
+server:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    paths:
+      - /
+    pathType: Prefix
+    annotations:
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "false"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    tls: []

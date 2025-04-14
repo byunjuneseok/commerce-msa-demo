@@ -21,7 +21,7 @@ imagePullSecrets:
   - name: ghcr-secret
 
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 8080
 
 resources:
@@ -40,16 +40,15 @@ autoscaling:
 
 ingress:
   enabled: true
-  className: ""
+  className: "nginx"
   annotations: {}
   hosts:
     - host: order-api.binaryflavor.com
       paths:
         - path: /
           pathType: Prefix
-  tls: []
-  # tls:
-  #   - hosts:
-  #       - order-api.local
-  #     secretName: order-api-tls 
+  tls:
+    - hosts:
+       - order-api.binaryflavor.com
+      secretName: order-api-tls
   
