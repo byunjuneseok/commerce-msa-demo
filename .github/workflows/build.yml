@@ -36,7 +36,7 @@ jobs:
 
       - name: Determine Version
         id: version
-        run: bash version.bash
+        run: bash .github/workflows/version.bash
 
       - name: SetUp to Docker Buildx
         uses: docker/setup-buildx-action@v3
