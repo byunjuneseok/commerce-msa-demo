@@ -10,7 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: { app: [
+        'gateway',
         'order-api',
+        'inventory-api',
       ] }
     permissions:
       packages: write
@@ -21,5 +23,4 @@ jobs:
       with:
         package-name: ${{ env.IMAGE_NAME }}
         package-type: 'container'
-        min-versions-to-keep: 0
-        delete-only-untagged-versions: 'true'
+        min-versions-to-keep: 3
