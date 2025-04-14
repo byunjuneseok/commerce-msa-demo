@@ -15,7 +15,10 @@ jobs:
     runs-on: ubuntu-24.04-arm
     strategy:
       matrix:
-        app: [ 'order-api' ]
+        app: [
+          'order-api',
+          'inventory-api',
+        ]
     permissions:
       contents: read
       packages: write
@@ -65,7 +68,3 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             APP_NAME=${{ matrix.app }}
-
-      - name: Save image tag for downstream job
-        id: set-matrix
-        run: echo "result={\"app\":\"${{ matrix.app }}\",\"tag\":\"${{ steps.version.outputs.semVer }}-${{ steps.version.outputs.shortSha }}\"}" >> $GITHUB_OUTPUT

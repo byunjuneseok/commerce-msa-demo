@@ -1,0 +1,6 @@
+{
+  "name": "inventory-api",
+  "helm": {
+    "chart": "charts/app"
+  }
+}

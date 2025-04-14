@@ -1,0 +1,14 @@
+auth:
+  rootPassword: "root"
+  database: "inventory"
+  username: "inventory"
+  password: "password"
+
+persistence:
+  enabled: true
+  storageClass: "standard"
+  size: 1Gi
+
+service:
+  type: ClusterIP
+  port: 3306

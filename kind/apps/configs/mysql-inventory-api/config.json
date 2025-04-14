@@ -1,0 +1,6 @@
+{
+  "name": "mysql-inventory-api",
+  "helm": {
+    "chart": "charts/mysql-arm64"
+  }
+}

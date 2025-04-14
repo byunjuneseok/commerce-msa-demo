@@ -1,15 +1,15 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/byunjuneseok/commerce-msa-demo-order-api
+  repository: ghcr.io/byunjuneseok/commerce-msa-demo-inventory-api
   tag: 25.04.14-develop.0135-a24f13b
   pullPolicy: IfNotPresent
 
 env:
   - name: mysql_datasource_hikari_jdbc_url
-    value: jdbc:mysql://mysql-order-api-mysql:3306/order
+    value: jdbc:mysql://mysql-inventory-api-mysql:3306/inventory
   - name: mysql_datasource_hikari_username
-    value: order
+    value: inventory
   - name: mysql_datasource_hikari_password
     value: password
   - name: spring_data_redis_host
