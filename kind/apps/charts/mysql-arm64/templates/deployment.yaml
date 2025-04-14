@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: {{ include "app.fullname" . }}
   labels:
-    app: mysql
+    {{- include "app.labels" . | nindent 4 }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: mysql
+      {{- include "app.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
-        app: mysql
+        {{- include "app.selectorLabels" . | nindent 8 }}
     spec:
       containers:
         - name: mysql

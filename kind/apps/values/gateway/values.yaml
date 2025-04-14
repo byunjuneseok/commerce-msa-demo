@@ -9,7 +9,7 @@ env:
   - name: spring_cloud_gateway_order_api_uri
     value: http://order-api-app.default.svc.cluster.local:8080
   - name: spring_cloud_gateway_inventory_api_uri
-    value: http://order-api-app.default.svc.cluster.local:8080
+    value: http://inventory-api-app.default.svc.cluster.local:8080
 
 imagePullSecrets:
   - name: ghcr-secret
