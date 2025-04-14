@@ -1,0 +1,6 @@
+{
+  "name": "gateway",
+  "helm": {
+    "chart": "charts/app"
+  }
+}
