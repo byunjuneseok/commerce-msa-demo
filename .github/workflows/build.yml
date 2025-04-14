@@ -9,19 +9,19 @@ on:
       - 'gateway/**'
       - 'inventory-api/**'
       - 'order-api/**'
-      - 'service-registry/**'
-  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-24.04-arm
     strategy:
-      matrix: { app: [
-        'order-api',
-      ] }
+      matrix:
+        app: [ 'order-api' ]
     permissions:
       contents: read
       packages: write
+
+    outputs:
+      image_tag_matrix: ${{ steps.set-matrix.outputs.result }}
 
     steps:
       - uses: actions/checkout@v4
@@ -57,7 +57,6 @@ jobs:
           file: Dockerfile
           context: .
           push: true
-#          platforms: linux/amd64,linux/arm64
           platforms: linux/arm64
           tags: |
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
@@ -66,3 +65,7 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             APP_NAME=${{ matrix.app }}
+
+      - name: Save image tag for downstream job
+        id: set-matrix
+        run: echo "result={\"app\":\"${{ matrix.app }}\",\"tag\":\"${{ steps.version.outputs.semVer }}-${{ steps.version.outputs.shortSha }}\"}" >> $GITHUB_OUTPUT

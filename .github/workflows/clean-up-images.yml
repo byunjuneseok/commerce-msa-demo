@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: { app: [
-        'service-registry',
         'order-api',
       ] }
     permissions:
