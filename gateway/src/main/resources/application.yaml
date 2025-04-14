@@ -19,3 +19,17 @@ spring:
             - Path=/inventory-api/**
           filters:
             - StripPrefix=1
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      defaultFallback:
+        slidingWindowSize: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10000
+        registerHealthIndicator: true
+  timelimiter:
+    instances:
+      defaultFallback:
+        timeoutDuration: 4s
