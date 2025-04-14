@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/byunjuneseok/commerce-msa-demo-inventory-api
-  tag: 25.04.14-develop.2136-bcb1d48
+  tag: 25.04.14-develop.2346-c8a72a0
   pullPolicy: IfNotPresent
 
 env:

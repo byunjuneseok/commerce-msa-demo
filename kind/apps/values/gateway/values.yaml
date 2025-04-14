@@ -2,7 +2,7 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/byunjuneseok/commerce-msa-demo-gateway
-  tag: 25.04.14-develop.1950-9c3b142
+  tag: 25.04.14-develop.2346-c8a72a0
   pullPolicy: IfNotPresent
 
 env:
