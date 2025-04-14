@@ -7,25 +7,24 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.beans.factory.annotation.Value;
 
 @Configuration
-public class RedisConfig
-{
-  @Value("${spring.data.redis.host}")
-  private String host;
+public class RedisConfig {
 
-  @Value("${spring.data.redis.port}")
-  private int port;
+    @Value("${spring.data.redis.host}")
+    private String host;
 
-  @Bean
-  public LettuceConnectionFactory redisConnectionFactory()
-  {
-    return new LettuceConnectionFactory(host, port);
-  }
+    @Value("${spring.data.redis.port}")
+    private int port;
 
-  @Bean
-  public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory redisConnectionFactory)
-  {
-    RedisTemplate<String, Object> template = new RedisTemplate<>();
-    template.setConnectionFactory(redisConnectionFactory);
-    return template;
-  }
+    @Bean
+    public LettuceConnectionFactory redisConnectionFactory() {
+        return new LettuceConnectionFactory(host, port);
+    }
+
+    @Bean
+    public RedisTemplate<String, Object> redisTemplate(LettuceConnectionFactory redisConnectionFactory) {
+        RedisTemplate<String, Object> template = new RedisTemplate<>();
+        template.setConnectionFactory(redisConnectionFactory);
+        return template;
+    }
+
 }

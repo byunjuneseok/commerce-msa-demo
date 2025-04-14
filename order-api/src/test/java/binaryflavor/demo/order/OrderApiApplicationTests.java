@@ -4,12 +4,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class OrderApiApplicationTests
-{
+class OrderApiApplicationTests {
 
-  @Test
-  void contextLoads()
-  {
-  }
+    @Test
+    void contextLoads() {
+    }
 
 }

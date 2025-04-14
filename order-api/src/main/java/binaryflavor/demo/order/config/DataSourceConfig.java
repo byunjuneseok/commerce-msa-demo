@@ -8,18 +8,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DataSourceConfig
-{
-  @Bean
-  @ConfigurationProperties(prefix = "mysql.datasource.hikari")
-  public HikariConfig hikariConfig()
-  {
-    return new HikariConfig();
-  }
+public class DataSourceConfig {
 
-  @Bean
-  public DataSource dataSource(HikariConfig hikariConfig)
-  {
-      return new HikariDataSource(hikariConfig);
-  }
+    @Bean
+    @ConfigurationProperties(prefix = "mysql.datasource.hikari")
+    public HikariConfig hikariConfig() {
+        return new HikariConfig();
+    }
+
+    @Bean
+    public DataSource dataSource(HikariConfig hikariConfig) {
+        return new HikariDataSource(hikariConfig);
+    }
+
 }
