@@ -40,3 +40,11 @@ kubectl create secret docker-registry ghcr-secret --docker-server=ghcr.io --dock
 ```shell
 kubectl apply -f apps/appset.yaml -n argocd
 ```
+
+### Deploy Nats Cluster
+```shell
+helm repo add nats https://nats-io.github.io/k8s/helm/charts/
+helm repo update
+helm install nats nats/nats --create-namespace -f nats.yaml
+```
+

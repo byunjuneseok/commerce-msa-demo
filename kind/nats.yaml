@@ -1,0 +1,34 @@
+config:
+  jetstream:
+    enabled: false
+
+  cluster:
+    enabled: true
+    replicas: 4
+
+podTemplate:
+  topologySpreadConstraints:
+    kubernetes.io/hostname:
+      maxSkew: 1
+      whenUnsatisfiable: DoNotSchedule
+      labelSelector: { }
+  merge:
+    spec:
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app.kubernetes.io/name
+                      operator: In
+                      values:
+                        - nats
+                topologyKey: kubernetes.io/hostname
+
+podDisruptionBudget:
+  enabled: true
+  merge:
+    spec:
+      minAvailable: 2
