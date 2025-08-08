@@ -10,7 +10,7 @@ go install sigs.k8s.io/cloud-provider-kind@latest
 ```
 ## Configure Kind Development Environment
 
-### Create a Kind Cluster
+### Create a Kind Cluster   
 ```shell
 kind create cluster --config=cluster.yaml
 
@@ -48,3 +48,15 @@ helm repo update
 helm install nats nats/nats --create-namespace -f nats.yaml
 ```
 
+### Deploy Zookeeper
+```shell
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+
+kubectl create namespace infra || true
+
+# install with a small, kind-friendly config
+helm upgrade --install zookeeper bitnami/zookeeper \
+  -n infra \
+  -f zookeeper-values.yaml
+```
